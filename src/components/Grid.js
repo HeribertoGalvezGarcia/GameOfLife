@@ -6,7 +6,7 @@ const StyledGrid = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: ${({width}) => `${width*14}px`};
+  width: ${({width_}) => `${width_*14}px`};
 `;
 
 function Grid({height, width}) {
@@ -17,7 +17,7 @@ function Grid({height, width}) {
   }
 
   return (
-    <StyledGrid width={width}>
+    <StyledGrid width_={width}>
       {nodes}
     </StyledGrid>
   );
