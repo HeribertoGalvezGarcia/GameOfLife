@@ -13,11 +13,7 @@ const StyledGrid = styled.div`
 function Grid() {
   const [height, width] = useSelector(({height, width}) => [height, width]);
 
-  const nodes = [];
-
-  for (let x = 0; x < width; ++x) {
-    for (let y = 0; y < height; ++y) nodes.push(<Node key={[x, y]} x={x} y={y} />)
-  }
+  const nodes = [...new Array(height * width).keys()].map(i => <Node key={i} index={i} />);
 
   return (
     <StyledGrid width_={width}>
