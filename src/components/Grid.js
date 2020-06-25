@@ -1,7 +1,8 @@
 import React from "react";
 import Node from "./Node";
 import styled from "styled-components";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {generateGeneration} from "../actions";
 
 const StyledGrid = styled.div`
   display: flex;
@@ -11,14 +12,16 @@ const StyledGrid = styled.div`
 `;
 
 function Grid() {
-  const [height, width] = useSelector(({height, width}) => [height, width]);
-
-  const nodes = [...new Array(height * width).keys()].map(i => <Node key={i} index={i} />);
+  const [width, nodes] = useSelector(({width, nodes}) => [width, nodes]);
+  const dispatch = useDispatch();
 
   return (
-    <StyledGrid width_={width}>
-      {nodes}
-    </StyledGrid>
+    <>
+      <button onClick={() => dispatch(generateGeneration(nodes, width))}>Next Generation</button>
+      <StyledGrid width_={width}>
+        {nodes.map((_, i) => <Node key={i} index={i} />)}
+      </StyledGrid>
+    </>
   );
 }
 

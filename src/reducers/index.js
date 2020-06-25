@@ -1,4 +1,4 @@
-import {SET_DIMENSIONS, TOGGLE_ALIVE} from "../actions";
+import {GENERATE_GENERATION, SET_DIMENSIONS, TOGGLE_ALIVE} from "../actions";
 
 const initialState = {
   nodes: [false, false, false, false],
@@ -17,6 +17,9 @@ function reducer(state = initialState, {type, payload}) {
       return {...state, ...payload};
     case TOGGLE_ALIVE:
       newState.nodes[payload] = !newState.nodes[payload];
+      return newState;
+    case GENERATE_GENERATION:
+      newState.nodes = payload;
       return newState;
     default:
       return newState;

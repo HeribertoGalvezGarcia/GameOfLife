@@ -1,5 +1,6 @@
 const SET_DIMENSIONS = 'SET_DIMENSIONS';
 const TOGGLE_ALIVE = 'TOGGLE_ALIVE';
+const GENERATE_GENERATION = 'GENERATE_GENERATION';
 
 function setDimensions(height, width) {
   return {type: SET_DIMENSIONS, payload: {height, width}};
@@ -9,4 +10,39 @@ function toggleAlive(nodeId) {
   return {type: TOGGLE_ALIVE, payload: nodeId}
 }
 
-export {SET_DIMENSIONS, TOGGLE_ALIVE, setDimensions, toggleAlive};
+function generateGeneration(nodes, width) {
+  const newNodes = [];
+
+  for (let i = 0; i < nodes.length; ++i) {
+    let aliveNeighbors = 0;
+
+    const node = nodes[i];
+
+    const hasLeft = i % width !== 0;
+    const hasRight = (i + 1) % width !== 0;
+    const hasTop = i - width >= 0;
+    const hasBottom = i + width < nodes.length;
+
+    if (hasTop) {
+      if (hasLeft && nodes[i-width-1] === true) ++aliveNeighbors;
+      if (nodes[i-width] === true) ++aliveNeighbors;
+      if (hasRight && nodes[i-width+1] === true) ++aliveNeighbors;
+    }
+
+    if (hasLeft && nodes[i-1] === true) ++aliveNeighbors;
+    if (hasRight && nodes[i+1] === true) ++aliveNeighbors;
+
+    if (hasBottom) {
+
+      if (hasLeft && nodes[i+width-1] === true) ++aliveNeighbors;
+      if (nodes[i+width] === true) ++aliveNeighbors;
+      if (hasRight && nodes[i+width+1] === true) ++aliveNeighbors;
+    }
+
+    newNodes.push(node ? [2, 3].includes(aliveNeighbors) : aliveNeighbors === 3);
+  }
+
+  return {type: GENERATE_GENERATION, payload: newNodes};
+}
+
+export {SET_DIMENSIONS, TOGGLE_ALIVE, GENERATE_GENERATION, setDimensions, toggleAlive, generateGeneration};
