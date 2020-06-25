@@ -7,8 +7,7 @@ const StyledNode = styled.div`
   box-sizing: border-box;
   height: 10px;
   width: 10px;
-  margin: 1px;
-  border: 1px solid black;
+  border: 1px solid grey;
   background-color: ${({alive}) => alive ? "black" : "white"};
 `;
 

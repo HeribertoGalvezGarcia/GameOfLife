@@ -8,7 +8,7 @@ const StyledGrid = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: ${({width_}) => `${width_*12}px`};
+  width: ${({width_}) => `${width_*10}px`};
 `;
 
 function Grid() {
