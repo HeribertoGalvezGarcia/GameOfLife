@@ -1,9 +1,12 @@
 import {GENERATE_GENERATION, SET_DIMENSIONS, TOGGLE_ALIVE} from "../actions";
 
+const height = 25;
+const width = 25;
+
 const initialState = {
-  nodes: [false, false, false, false],
-  height: 2,
-  width: 2
+  nodes: [...new Array(height * width)].map(() => false),
+  height,
+  width
 };
 
 function reducer(state = initialState, {type, payload}) {
