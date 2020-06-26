@@ -20,6 +20,7 @@ function reducer(state = initialState, {type, payload}) {
       newState.height = payload.height;
       newState.width = payload.width;
       newState.nodes = payload.nodes;
+      newState.generation = 0;
       return newState;
     case SET_ALIVE:
       newState.nodes[payload.node] = payload.alive;
