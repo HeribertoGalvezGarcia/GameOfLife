@@ -1,10 +1,15 @@
 const SET_DIMENSIONS = 'SET_DIMENSIONS';
+const SET_GRID = 'SET_GRID';
 const SET_ALIVE = 'SET_ALIVE';
 const GENERATE_GENERATION = 'GENERATE_GENERATION';
 const SET_RUNNING = 'SET_RUNNING';
 
 function setDimensions(height, width) {
   return {type: SET_DIMENSIONS, payload: {height, width, nodes: [...new Array(height * width)].map(() => false)}};
+}
+
+function setGrid(height, width, nodes) {
+  return {type: SET_GRID, payload: {height, width, nodes}};
 }
 
 function setAlive(node, alive) {
@@ -50,4 +55,4 @@ function setRunning(running) {
   return {type: SET_RUNNING, payload: running};
 }
 
-export {SET_DIMENSIONS, SET_ALIVE, GENERATE_GENERATION, SET_RUNNING, setDimensions, setAlive, generateGeneration, setRunning};
+export {SET_DIMENSIONS, SET_GRID, SET_ALIVE, GENERATE_GENERATION, SET_RUNNING, setDimensions, setGrid, setAlive, generateGeneration, setRunning};
