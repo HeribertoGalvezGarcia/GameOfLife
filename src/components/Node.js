@@ -12,10 +12,10 @@ const StyledNode = styled.div`
 `;
 
 function Node({index}) {
-  const alive = useSelector(({nodes}) => nodes[index]);
+  const [alive, running] = useSelector(({nodes, running}) => [nodes[index], running]);
   const dispatch = useDispatch();
 
-  return <StyledNode alive={alive} onClick={() => dispatch(toggleAlive(index))} />
+  return <StyledNode alive={alive} onClick={() => !running && dispatch(toggleAlive(index))} />
 }
 
 export default Node;

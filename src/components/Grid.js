@@ -12,12 +12,12 @@ const StyledGrid = styled.div`
 `;
 
 function Grid() {
-  const [width, nodes] = useSelector(({width, nodes}) => [width, nodes]);
+  const [width, nodes, running] = useSelector(({width, nodes, running}) => [width, nodes, running]);
   const dispatch = useDispatch();
 
   return (
     <>
-      <button onClick={() => dispatch(generateGeneration(nodes, width))}>Next Generation</button>
+      <button disabled={running} onClick={() => dispatch(generateGeneration(nodes, width))}>Next Generation</button>
       <StyledGrid width_={width}>
         {nodes.map((_, i) => <Node key={i} index={i} />)}
       </StyledGrid>
