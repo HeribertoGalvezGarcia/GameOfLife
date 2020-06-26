@@ -26,15 +26,15 @@ function Controller() {
     <>
       {generation}
 
-      <input type="text" placeholder="height" value={height} onChange={({target: {value}}) => dispatch(setDimensions(value, width))} />
-      <input type="text" placeholder="width" value={width} onChange={({target: {value}}) => dispatch(setDimensions(height, value))} />
+      <input disabled={running} type="text" placeholder="height" value={height} onChange={({target: {value}}) => dispatch(setDimensions(value, width))} />
+      <input disabled={running} type="text" placeholder="width" value={width} onChange={({target: {value}}) => dispatch(setDimensions(height, value))} />
 
-      <select onChange={({target: {value}}) => dispatch(setGrid(...presets[value].slice(1)))}>
+      <select disabled={running} onChange={({target: {value}}) => dispatch(setGrid(...presets[value].slice(1)))}>
         {presets.map(([name], i) => <option value={i} key={i}>{name}</option>)}
       </select>
 
       <button onClick={() => dispatch(setRunning(!running))}>{running ? "Stop" : "Run"}</button>
-      <button onClick={() => dispatch(setDimensions(height, width))}>Clear</button>
+      <button disabled={running} onClick={() => dispatch(setDimensions(height, width))}>Clear</button>
     </>
   )
 }
