@@ -1,4 +1,4 @@
-import {GENERATE_GENERATION, SET_DIMENSIONS, TOGGLE_ALIVE} from "../actions";
+import {GENERATE_GENERATION, SET_DIMENSIONS, TOGGLE_ALIVE, SET_RUNNING} from "../actions";
 
 const height = 25;
 const width = 25;
@@ -6,7 +6,9 @@ const width = 25;
 const initialState = {
   nodes: [...new Array(height * width)].map(() => false),
   height,
-  width
+  width,
+  generation: 0,
+  running: false
 };
 
 function reducer(state = initialState, {type, payload}) {
@@ -22,7 +24,11 @@ function reducer(state = initialState, {type, payload}) {
       newState.nodes[payload] = !newState.nodes[payload];
       return newState;
     case GENERATE_GENERATION:
-      newState.nodes = payload;
+      newState.nodes = payload.nodes;
+      newState.generation = payload.generation;
+      return newState;
+    case SET_RUNNING:
+      newState.running = payload;
       return newState;
     default:
       return newState;

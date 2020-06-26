@@ -1,6 +1,7 @@
 const SET_DIMENSIONS = 'SET_DIMENSIONS';
 const TOGGLE_ALIVE = 'TOGGLE_ALIVE';
 const GENERATE_GENERATION = 'GENERATE_GENERATION';
+const SET_RUNNING = 'SET_RUNNING';
 
 function setDimensions(height, width) {
   return {type: SET_DIMENSIONS, payload: {height, width}};
@@ -10,7 +11,7 @@ function toggleAlive(nodeId) {
   return {type: TOGGLE_ALIVE, payload: nodeId}
 }
 
-function generateGeneration(nodes, width) {
+function generateGeneration(nodes, width, generation) {
   const newNodes = [];
 
   for (let i = 0; i < nodes.length; ++i) {
@@ -42,7 +43,11 @@ function generateGeneration(nodes, width) {
     newNodes.push(node ? [2, 3].includes(aliveNeighbors) : aliveNeighbors === 3);
   }
 
-  return {type: GENERATE_GENERATION, payload: newNodes};
+  return {type: GENERATE_GENERATION, payload: {nodes: newNodes, generation: generation+1}};
 }
 
-export {SET_DIMENSIONS, TOGGLE_ALIVE, GENERATE_GENERATION, setDimensions, toggleAlive, generateGeneration};
+function setRunning(running) {
+  return {type: SET_RUNNING, payload: running};
+}
+
+export {SET_DIMENSIONS, TOGGLE_ALIVE, GENERATE_GENERATION, SET_RUNNING, setDimensions, toggleAlive, generateGeneration, setRunning};
