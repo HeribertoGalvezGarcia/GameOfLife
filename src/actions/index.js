@@ -1,14 +1,14 @@
 const SET_DIMENSIONS = 'SET_DIMENSIONS';
-const TOGGLE_ALIVE = 'TOGGLE_ALIVE';
+const SET_ALIVE = 'SET_ALIVE';
 const GENERATE_GENERATION = 'GENERATE_GENERATION';
 const SET_RUNNING = 'SET_RUNNING';
 
 function setDimensions(height, width) {
-  return {type: SET_DIMENSIONS, payload: {height, width}};
+  return {type: SET_DIMENSIONS, payload: {height, width, nodes: [...new Array(height * width)].map(() => false)}};
 }
 
-function toggleAlive(nodeId) {
-  return {type: TOGGLE_ALIVE, payload: nodeId}
+function setAlive(node, alive) {
+  return {type: SET_ALIVE, payload: {node, alive}};
 }
 
 function generateGeneration(nodes, width, generation) {
@@ -50,4 +50,4 @@ function setRunning(running) {
   return {type: SET_RUNNING, payload: running};
 }
 
-export {SET_DIMENSIONS, TOGGLE_ALIVE, GENERATE_GENERATION, SET_RUNNING, setDimensions, toggleAlive, generateGeneration, setRunning};
+export {SET_DIMENSIONS, SET_ALIVE, GENERATE_GENERATION, SET_RUNNING, setDimensions, setAlive, generateGeneration, setRunning};

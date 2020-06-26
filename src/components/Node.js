@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import {useDispatch, useSelector} from "react-redux";
-import {toggleAlive} from "../actions";
+import {setAlive} from "../actions";
 
 const StyledNode = styled.div`
   box-sizing: border-box;
@@ -15,7 +15,7 @@ function Node({index}) {
   const [alive, running] = useSelector(({nodes, running}) => [nodes[index], running]);
   const dispatch = useDispatch();
 
-  return <StyledNode alive={alive} onClick={() => !running && dispatch(toggleAlive(index))} />
+  return <StyledNode alive={alive} onClick={() => !running && dispatch(setAlive(index, !alive))} />
 }
 
 export default Node;
