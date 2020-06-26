@@ -33,6 +33,8 @@ function Controller() {
         {presets.map(([name], i) => <option value={i} key={i}>{name}</option>)}
       </select>
 
+      <button disabled={running} onClick={() => dispatch(setGrid(height, width, [...Array(height * width)].map(() => Math.random() < 0.5)))}>Random</button>
+
       <button onClick={() => dispatch(setRunning(!running))}>{running ? "Stop" : "Run"}</button>
       <button disabled={running} onClick={() => dispatch(setDimensions(height, width))}>Clear</button>
     </>
