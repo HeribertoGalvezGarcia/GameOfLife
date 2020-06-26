@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/HeribertoGalvezGarcia/GameOfLife/static/js/main.0b211bfa.chunk.js",
-    "main.js.map": "/HeribertoGalvezGarcia/GameOfLife/static/js/main.0b211bfa.chunk.js.map",
-    "runtime-main.js": "/HeribertoGalvezGarcia/GameOfLife/static/js/runtime-main.676c45a2.js",
-    "runtime-main.js.map": "/HeribertoGalvezGarcia/GameOfLife/static/js/runtime-main.676c45a2.js.map",
-    "static/js/2.81d7e6a5.chunk.js": "/HeribertoGalvezGarcia/GameOfLife/static/js/2.81d7e6a5.chunk.js",
-    "static/js/2.81d7e6a5.chunk.js.map": "/HeribertoGalvezGarcia/GameOfLife/static/js/2.81d7e6a5.chunk.js.map",
-    "index.html": "/HeribertoGalvezGarcia/GameOfLife/index.html",
-    "precache-manifest.f050aa7a9b49e1fa423765e1cb65f30c.js": "/HeribertoGalvezGarcia/GameOfLife/precache-manifest.f050aa7a9b49e1fa423765e1cb65f30c.js",
-    "service-worker.js": "/HeribertoGalvezGarcia/GameOfLife/service-worker.js",
-    "static/js/2.81d7e6a5.chunk.js.LICENSE.txt": "/HeribertoGalvezGarcia/GameOfLife/static/js/2.81d7e6a5.chunk.js.LICENSE.txt"
+    "main.js": "/GameOfLife/static/js/main.0b211bfa.chunk.js",
+    "main.js.map": "/GameOfLife/static/js/main.0b211bfa.chunk.js.map",
+    "runtime-main.js": "/GameOfLife/static/js/runtime-main.19ad8619.js",
+    "runtime-main.js.map": "/GameOfLife/static/js/runtime-main.19ad8619.js.map",
+    "static/js/2.bb709060.chunk.js": "/GameOfLife/static/js/2.bb709060.chunk.js",
+    "static/js/2.bb709060.chunk.js.map": "/GameOfLife/static/js/2.bb709060.chunk.js.map",
+    "index.html": "/GameOfLife/index.html",
+    "precache-manifest.972fb881ef59dc6a4a8af90b71b5c9ce.js": "/GameOfLife/precache-manifest.972fb881ef59dc6a4a8af90b71b5c9ce.js",
+    "service-worker.js": "/GameOfLife/service-worker.js",
+    "static/js/2.bb709060.chunk.js.LICENSE.txt": "/GameOfLife/static/js/2.bb709060.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.676c45a2.js",
-    "static/js/2.81d7e6a5.chunk.js",
+    "static/js/runtime-main.19ad8619.js",
+    "static/js/2.bb709060.chunk.js",
     "static/js/main.0b211bfa.chunk.js"
   ]
 }
