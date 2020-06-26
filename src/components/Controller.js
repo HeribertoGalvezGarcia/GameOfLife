@@ -34,6 +34,7 @@ function Controller() {
       </select>
 
       <button onClick={() => dispatch(setRunning(!running))}>{running ? "Stop" : "Run"}</button>
+      <button onClick={() => dispatch(setDimensions(height, width))}>Clear</button>
     </>
   )
 }
