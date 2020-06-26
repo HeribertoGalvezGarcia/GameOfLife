@@ -1,9 +1,9 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {generateGeneration, setRunning, setGrid} from "../actions";
+import {generateGeneration, setRunning, setGrid, setDimensions} from "../actions";
 
 function Controller() {
-  const [nodes, width, generation, running] = useSelector(({nodes, width, generation, running}) => [nodes, width, generation, running]);
+  const [nodes, height, width, generation, running] = useSelector(({nodes, height, width, generation, running}) => [nodes, height, width, generation, running]);
   const dispatch = useDispatch();
 
   const presets = [
@@ -25,6 +25,9 @@ function Controller() {
   return (
     <>
       {generation}
+
+      <input type="text" placeholder="height" value={height} onChange={({target: {value}}) => dispatch(setDimensions(value, width))} />
+      <input type="text" placeholder="width" value={width} onChange={({target: {value}}) => dispatch(setDimensions(height, value))} />
 
       <select onChange={({target: {value}}) => dispatch(setGrid(...presets[value].slice(1)))}>
         {presets.map(([name], i) => <option value={i} key={i}>{name}</option>)}
